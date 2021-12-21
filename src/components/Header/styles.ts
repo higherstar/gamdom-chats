@@ -2,10 +2,14 @@ import styled from 'styled-components'
 import { Button as MuiButton } from '@material-ui/core'
 
 const Container = styled.div`
+  position: fixed;
+  top: 0;
   display: flex;
+  width: calc(100% - 5px);
   background-color: ${props => props.theme.colors.grey};
   height: 60px;
   padding: 8px 10px;
+  z-index: 2;
 
   .left, .right {
     flex: 1;

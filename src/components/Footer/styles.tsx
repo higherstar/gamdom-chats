@@ -101,6 +101,7 @@ const Container = styled.div`
       display: flex;
       flex: 0 0 100%;
       justify-content: space-between;
+      align-items: center;
       margin: auto;
       max-width: 1270px;
     }

@@ -2,13 +2,13 @@ import React from 'react'
 import { BrowserRouter as Router, Switch } from 'react-router-dom'
 
 import LayoutRoute from './components/LayoutRoute'
-import MainPage from './pages/Main'
+import HomePage from './pages/Home'
 
 const AppRouter = () => {
   return (
     <Router>
       <Switch>
-        <LayoutRoute path='/' exact component={MainPage}/>
+        <LayoutRoute path='/' exact component={HomePage}/>
       </Switch>
     </Router>
   )
