@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react'
 
 import * as S from './styles'
+import Header from '../Header'
 
 export interface LayoutProps {
   children?: ReactNode
@@ -13,6 +14,7 @@ const Layout = ({ children, isAnonym }: LayoutProps) => {
       <S.AppContent>
         <S.MainContent>
           <S.Container>
+            <Header />
             {children}
           </S.Container>
         </S.MainContent>

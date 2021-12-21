@@ -1,6 +1,10 @@
 export enum Color {
   white = '#FFFFFF',
-  black = '#242424'
+  black = '#242424',
+  charcoal = '#232c31',
+  green = '#0ee07b',
+  grey = '#2f3e45',
+  dark = '#141a1d'
 }
 
 const theme = {
@@ -14,6 +18,10 @@ const theme = {
   colors: {
     white: Color.white,
     black: Color.black,
+    charcoal: Color.charcoal,
+    green: Color.green,
+    grey: Color.grey,
+    dark: Color.dark
   },
   buttonSizes: {
     medium: {

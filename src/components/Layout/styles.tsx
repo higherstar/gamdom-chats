@@ -34,7 +34,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  background: white;
+  background: ${props => props.theme.colors.charcoal};
   overflow: hidden;
 `
 
