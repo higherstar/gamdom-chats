@@ -44,4 +44,38 @@ const Container = styled.div`
   }
 `
 
-export { Container }
+const TablesContainer = styled.div`
+  margin-top: 20px;
+  color: #919597;
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .tab-container {
+      display: inline-flex;
+      border-radius: 5px;
+      overflow: hidden;
+
+      .tab-item {
+        padding: 10px 15px;
+        color: #919597;
+        background-color: #29353b;
+        cursor: pointer;
+        transition: all ease 0.3s;
+
+        &.active {
+          background-color: #3a424e;
+          color: white;
+        }
+
+        &:hover {
+          background-color: #3a424e;
+        }
+      }
+    }
+  }
+`
+
+export { Container, TablesContainer }

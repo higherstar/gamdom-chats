@@ -1,6 +1,6 @@
 import once from 'lodash/once'
 
-import BetsStore from './Bets.store'
+import BetsStore from './BetsStore'
 
 const BETSSTORE = 'BetsStore'
 

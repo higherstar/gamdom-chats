@@ -2,6 +2,7 @@ import React from 'react'
 import { Grid, Box } from '@material-ui/core'
 
 import * as S from './styles'
+import Tables from './Tables'
 import SlotsImg from '../../assets/images/slots.png'
 import SportsImg from '../../assets/images/sports.png'
 import RouletteImg from '../../assets/images/roulette.png'
@@ -60,6 +61,7 @@ const MainPage = () => {
         </Box>
         <img className='logo' src={Logo} alt='Logo' />
       </div>
+      <Tables />
     </S.Container>
   )
 }
