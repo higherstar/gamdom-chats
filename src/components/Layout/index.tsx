@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react'
 
 import * as S from './styles'
 import Header from '../Header'
+import Footer from '../Footer'
 
 export interface LayoutProps {
   children?: ReactNode
@@ -16,6 +17,7 @@ const Layout = ({ children, isAnonym }: LayoutProps) => {
           <S.Container>
             <Header />
             {children}
+            <Footer />
           </S.Container>
         </S.MainContent>
       </S.AppContent>
