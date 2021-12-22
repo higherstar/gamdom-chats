@@ -9,7 +9,7 @@ const Container = styled.div`
   background-color: ${props => props.theme.colors.grey};
   height: 60px;
   padding: 8px 10px;
-  z-index: 2;
+  z-index: 3;
 
   .left, .right {
     flex: 1;

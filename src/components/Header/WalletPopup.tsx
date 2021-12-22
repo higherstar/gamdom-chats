@@ -145,6 +145,7 @@ const MenuItem = styled.div<{active?: boolean}>`
 
 const WalletPopup = () => {
   const [anchorEl, setAnchorEl] = React.useState(null)
+  const [betCurrency, setBetCurrency] = React.useState('USD')
 
   const handleClose = () => {
     setAnchorEl(null)
@@ -152,6 +153,10 @@ const WalletPopup = () => {
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget)
+  }
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setBetCurrency((event.target as HTMLInputElement).value);
   }
 
   return (
@@ -206,7 +211,14 @@ const WalletPopup = () => {
           <div className='divider' />
           <div className='bet-currencies'>
             <span className='label'>Bet Currencies</span>
-            <RadioGroup className='currency-group' row aria-label="position" name="position" defaultValue="top">
+            <RadioGroup
+              className='currency-group'
+              row
+              aria-label="currency"
+              name="currency"
+              value={betCurrency}
+              onChange={handleChange}
+            >
               <FormControlLabel
                 value="USD"
                 control={<Radio size='small'/>}
