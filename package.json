@@ -33,7 +33,7 @@
     "i18next": "^19.8.4",
     "material-table": "^1.69.2",
     "moment-timezone": "^0.5.27",
-    "mobx": "^5.15.0",
+    "mobx": "^6.3.3",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-i18next": "^11.8.5",

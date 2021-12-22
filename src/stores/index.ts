@@ -1,17 +1,10 @@
-import once from 'lodash/once'
+import ChatStore from './ChatStore'
+import RootStore from './RootStore'
 
-import BetsStore from './BetsStore'
+const stores = {
+  chatStore: ChatStore,
+};
 
-const BETSSTORE = 'BetsStore'
+const rootStore = new RootStore(stores)
 
-export const STORE_KEYS = {
-  BETSSTORE,
-}
-
-export default once(() => {
-  const betsStore = BetsStore()
-
-  return {
-    [STORE_KEYS.BETSSTORE]: betsStore,
-  }
-})
+export default { ...stores, rootStore }

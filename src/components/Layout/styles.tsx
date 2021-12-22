@@ -56,6 +56,10 @@ const Container = styled.div`
   flex-direction: column;
   position: relative;
   overflow: hidden;
+
+  .body {
+    margin-top: 60px;
+  }
 `
 
 export { Root, AppContent, MainContent, Container }
