@@ -10,6 +10,8 @@ import TradeUpImg from '../../assets/images/tradeup.png'
 import CrashImg from '../../assets/images/crash.png'
 import HiloImg from '../../assets/images/hilo.png'
 import Logo from '../../assets/images/full-logo.png'
+import SlogsHoverImg from '../../assets/images/slots_hover.png'
+import SportsHoverImg from '../../assets/images/sports_hover.png'
 
 const MainPage = () => {
   return (
@@ -18,12 +20,14 @@ const MainPage = () => {
         <Grid container spacing={3}>
           <Grid item xs={6}>
             <div className='big-item slots'>
-              <img src={SlotsImg} alt='Slots' />
+              <img className='main-img' src={SlotsImg} alt='Slots' />
+              <img className='hover-img' src={SlogsHoverImg} alt='Slots Hover' />
             </div>
           </Grid>
           <Grid item xs={6}>
             <div className='big-item sports'>
-              <img src={SportsImg} alt='Sports' />
+              <img className='main-img' src={SportsImg} alt='Sports' />
+              <img className='hover-img' src={SportsHoverImg} alt='Sports Hover' />
             </div>
           </Grid>
         </Grid>
