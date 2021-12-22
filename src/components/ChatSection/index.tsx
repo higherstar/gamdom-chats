@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import { observer } from 'mobx-react'
 import { IconButton, InputBase, makeStyles } from '@material-ui/core'
 import { Close, ExpandMore, Pets, InsertEmoticon, Telegram } from '@material-ui/icons'
@@ -10,6 +10,7 @@ import UserAvatarImg1 from '../../assets/images/avatar1.jpg'
 import UserAvatarImg2 from '../../assets/images/avatar2.jpg'
 import UserAvatarImg3 from '../../assets/images/avatar3.jpg'
 import http from '../../apis/http'
+import { IMsg } from '../../resources/interfaces'
 
 const useStyles = makeStyles(() => ({
   drawerPaper: {
@@ -23,10 +24,45 @@ const Avatar = {
   Harry: UserAvatarImg3
 }
 
+const ChatMsg = (msg: IMsg) => {
+  return (
+    <S.ChatMsgItem>
+      <div className='colorbar user' />
+      <span className='chat-user'>
+        <span className='chat-user-prof'>
+          <img src={Avatar[msg.user]} alt='User' />
+        </span>
+        <span className='gamdom-logo'>
+          <Pets />
+          <span className='level-val'>1</span>
+        </span>
+        <span className='chat-user-name'>
+          {msg.user}
+        </span>
+        <span className='chat_user_ico'>
+          <Pets />
+          <span>:</span>
+        </span>
+      </span>
+      <span className='chat-content'>
+        {msg.content}
+      </span>
+    </S.ChatMsgItem>
+  )
+}
+
 const ChatSection = () => {
   const classes = useStyles()
   const { chatStore } = useStores()
   const [message, setMessage] = useState('')
+  const msgContainer = useRef(null)
+
+  useEffect(() => {
+    if (msgContainer && msgContainer.current) {
+      // @ts-ignore
+      msgContainer.current.scrollTop = msgContainer.current.scrollHeight
+    }
+  }, [chatStore.msgList.length])
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
@@ -74,35 +110,12 @@ const ChatSection = () => {
           </div>
         </div>
         <div className='chatting-chat-msgs'>
-          <div className='top-gradient'>
-
-          </div>
+          <div className='top-gradient' />
           <div className='chat-input-bold'>
-            <div className='chat-msgs'>
+            <div className='chat-msgs' ref={msgContainer}>
               {
                 chatStore.msgList.map((msg, index) => (
-                  <div className='chat-msg' key={index}>
-                    <div className='colorbar user' />
-                    <span className='chat-user'>
-                      <span className='chat-user-prof'>
-                        <img src={Avatar[msg.user]} alt='User' />
-                      </span>
-                      <span className='gamdom-logo'>
-                        <Pets />
-                        <span className='level-val'>1</span>
-                      </span>
-                      <span className='chat-user-name'>
-                        {msg.user}
-                      </span>
-                      <span className='chat_user_ico'>
-                        <Pets />
-                        <span>:</span>
-                      </span>
-                    </span>
-                    <span className='chat-content'>
-                      {msg.content}
-                    </span>
-                  </div>
+                  <ChatMsg key={index} {...msg} />
                 ))
               }
             </div>

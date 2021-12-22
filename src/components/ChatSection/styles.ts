@@ -139,81 +139,6 @@ const Drawer = styled(MuiDrawer)`
           overflow-y: scroll;
           padding: 0 4px;
 
-          .chat-msg {
-            padding: 3px 0 3px 28px;
-            margin: 0 3px;
-
-            :nth-child(odd) {
-              background-color: #2b3840;
-            }
-
-            .chat-user {
-              display: inline-flex;
-              align-items: center;
-              margin-left: -26px;
-
-              .chat-user-prof {
-                img {
-                  width: 20px;
-                  height: 20px;
-                  border-radius: 5px;
-                }
-              }
-
-              .gamdom-logo {
-                display: flex;
-                align-items: center;
-                line-height: 1;
-                border-radius: 5px;
-                padding: 2px 5px;
-                min-height: 20px;
-                position: relative;
-                text-align: right;
-                background-color: #3d5059;
-                margin-left: 5px;
-
-                svg {
-                  width: 16px;
-                  height: 16px;
-                }
-              }
-
-              .chat-user-name {
-                font-size: 14px;
-                color: #acbfc6;
-                margin-left: 5px;
-                cursor: pointer;
-              }
-
-              .chat_user_ico {
-                display: flex;
-                align-items: center;
-                color: #adbec6;
-                margin-left: 5px;
-
-                svg {
-                  width: 16px;
-                  height: 16px;
-                }
-
-                span {
-                  padding: 0 5px 0 2px;
-                }
-              }
-            }
-
-            .chat-content {
-              position: relative;
-              top: -5px;
-              color: #fff;
-              font-size: 14px;
-              line-height: 15px;
-              vertical-align: middle;
-              word-break: break-word;
-              margin-left: 4px;
-            }
-          }
-
           .colorbar {
             position: absolute;
             top: 0;
@@ -336,4 +261,79 @@ const Drawer = styled(MuiDrawer)`
   }
 `
 
-export { Drawer }
+const ChatMsgItem = styled.div`
+  padding: 3px 0 3px 28px;
+  margin: 0 3px;
+
+  :nth-child(odd) {
+    background-color: #2b3840;
+  }
+
+  .chat-user {
+    display: inline-flex;
+    align-items: center;
+    margin-left: -26px;
+
+    .chat-user-prof {
+      img {
+        width: 20px;
+        height: 20px;
+        border-radius: 5px;
+      }
+    }
+
+    .gamdom-logo {
+      display: flex;
+      align-items: center;
+      line-height: 1;
+      border-radius: 5px;
+      padding: 2px 5px;
+      min-height: 20px;
+      position: relative;
+      text-align: right;
+      background-color: #3d5059;
+      margin-left: 5px;
+
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    .chat-user-name {
+      font-size: 14px;
+      color: #acbfc6;
+      margin-left: 5px;
+      cursor: pointer;
+    }
+
+    .chat_user_ico {
+      display: flex;
+      align-items: center;
+      color: #adbec6;
+      margin-left: 5px;
+
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      span {
+        padding: 0 5px 0 2px;
+      }
+    }
+  }
+
+  .chat-content {
+    position: relative;
+    top: -5px;
+    color: #fff;
+    font-size: 14px;
+    line-height: 15px;
+    vertical-align: middle;
+    word-break: break-word;
+    margin-left: 4px;
+  }
+`
+
+export { Drawer, ChatMsgItem }
