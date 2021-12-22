@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { observer } from 'mobx-react'
 import { IconButton, InputBase, makeStyles } from '@material-ui/core'
 import { Close, ExpandMore, Pets, InsertEmoticon, Telegram } from '@material-ui/icons'
@@ -6,7 +6,10 @@ import { Close, ExpandMore, Pets, InsertEmoticon, Telegram } from '@material-ui/
 import * as S from './styles'
 import useStores from '../../hooks/useStore'
 import BGFlag from '../../assets/images/gb.svg'
-import UserAvatarImg from '../../assets/images/avatar1.jpg'
+import UserAvatarImg1 from '../../assets/images/avatar1.jpg'
+import UserAvatarImg2 from '../../assets/images/avatar2.jpg'
+import UserAvatarImg3 from '../../assets/images/avatar3.jpg'
+import http from '../../apis/http'
 
 const useStyles = makeStyles(() => ({
   drawerPaper: {
@@ -14,9 +17,32 @@ const useStyles = makeStyles(() => ({
   }
 }))
 
+const Avatar = {
+  Tom: UserAvatarImg1,
+  Jack: UserAvatarImg2,
+  Harry: UserAvatarImg3
+}
+
 const ChatSection = () => {
   const classes = useStyles()
   const { chatStore } = useStores()
+  const [message, setMessage] = useState('')
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      sendMessage()
+    }
+  }
+
+  const sendMessage = async () => {
+    try {
+      const res = await http.post('/chat', { message })
+      chatStore.addMsg(res)
+      setMessage('')
+    } catch (e) {
+      console.log(e)
+    }
+  }
 
   return (
     <S.Drawer
@@ -54,27 +80,27 @@ const ChatSection = () => {
           <div className='chat-input-bold'>
             <div className='chat-msgs'>
               {
-                new Array(40).fill(0).map(_ => (
-                  <div className='chat-msg'>
+                chatStore.msgList.map((msg, index) => (
+                  <div className='chat-msg' key={index}>
                     <div className='colorbar user' />
                     <span className='chat-user'>
-                  <span className='chat-user-prof'>
-                    <img src={UserAvatarImg} alt='User' />
-                  </span>
-                  <span className='gamdom-logo'>
-                    <Pets />
-                    <span className='level-val'>1</span>
-                  </span>
-                  <span className='chat-user-name'>
-                    alkdsgin sgknn
-                  </span>
-                  <span className='chat_user_ico'>
-                    <Pets />
-                    <span>:</span>
-                  </span>
-                </span>
+                      <span className='chat-user-prof'>
+                        <img src={Avatar[msg.user]} alt='User' />
+                      </span>
+                      <span className='gamdom-logo'>
+                        <Pets />
+                        <span className='level-val'>1</span>
+                      </span>
+                      <span className='chat-user-name'>
+                        {msg.user}
+                      </span>
+                      <span className='chat_user_ico'>
+                        <Pets />
+                        <span>:</span>
+                      </span>
+                    </span>
                     <span className='chat-content'>
-                      asda alskd aglka sdglk g
+                      {msg.content}
                     </span>
                   </div>
                 ))
@@ -93,7 +119,10 @@ const ChatSection = () => {
               <div className='input-container'>
                 <InputBase
                   placeholder="Your message"
-                  inputProps={{ 'aria-label': 'search google maps' }}
+                  inputProps={{ 'aria-label': 'your message' }}
+                  value={message}
+                  onKeyPress={handleKeyDown}
+                  onChange={(e) => setMessage(e.target.value)}
                 />
                 <IconButton className='emoticon-btn' size='small'>
                   <InsertEmoticon />
