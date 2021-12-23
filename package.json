@@ -8,6 +8,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "author": "Damjan Kovac",
+  "license": "",
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -25,6 +27,7 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.5.1",
+    "@material-ui/icons": "^4.11.2",
     "axios": "^0.19.0",
     "bignumber.js": "^9.0.0",
     "color": "^3.1.2",
@@ -32,18 +35,20 @@
     "history": "^4.9.0",
     "i18next": "^19.8.4",
     "material-table": "^1.69.2",
-    "moment-timezone": "^0.5.27",
     "mobx": "^6.3.3",
+    "mobx-react": "^7.2.1",
+    "moment-timezone": "^0.5.27",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-i18next": "^11.8.5",
     "react-icons": "^3.7.0",
+    "react-owl-carousel3": "^2.2.5",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
-    "react-owl-carousel3": "^2.2.5",
     "redux": "4.0.5",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
+    "socket.io-client": "^4.4.0",
     "store2": "^2.7.1",
     "styled-components": "^4.3.2"
   },
